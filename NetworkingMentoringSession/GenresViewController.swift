@@ -6,34 +6,29 @@
 //
 
 import UIKit
-struct GenresResult: Decodable {
-    let genres: [Genre]
-}
-struct Genre: Decodable {
-    let id: Int
-    let name: String
-    let parentID: Int
-    
-    private enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case parentID = "parent_id"
-    }
-}
 
-
-class ViewController: UITableViewController {
+class GenresViewController: UITableViewController {
     var models: [Genre] = []
+    var selectedGenre: Genre?
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.refreshControl = UIRefreshControl ()
+        tableView.refreshControl = UIRefreshControl()
         tableView?.refreshControl?.addTarget(self, action: #selector(getGenres), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         getGenres()
         print("ViewDidLoad")
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(segue.identifier)
+        print(segue.destination)
+        if segue.identifier == "bestPodcast", let vc = segue.destination as? PodcastsViewController {
+            vc.genre = selectedGenre
+        }
+    }
+    
     @objc
-    func getGenres () {
+    func getGenres() {
         var request = URLRequest(url: URL(string : "https://listen-api-test.listennotes.com/api/v2/genres")!)
         let session = URLSession(configuration: .default)
         request.httpMethod = "GET"
@@ -51,25 +46,35 @@ class ViewController: UITableViewController {
                     self.tableView.reloadData()
                     self.tableView?.refreshControl?.endRefreshing()
                 }
+                
             } catch {
                 print("DECODING ERROR \(error)")
                 self.tableView?.refreshControl?.endRefreshing()
             }
         }
+        
         task.resume()
         tableView.refreshControl?.beginRefreshing()
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")!
         let genre = models[indexPath.row]
         cell.textLabel?.text = genre.name
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedGenre = models[indexPath.row]
+        self.performSegue(withIdentifier: "bestPodcast", sender: self)
     }
 }
 
