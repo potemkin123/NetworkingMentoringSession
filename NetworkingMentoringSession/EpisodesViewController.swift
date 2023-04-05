@@ -7,6 +7,7 @@
 
 import UIKit
 
+#warning("NO SPACE between class definition and variables")
 class EpisodesViewController: UITableViewController {
     
     var models2: [Episode] = []
@@ -17,6 +18,7 @@ class EpisodesViewController: UITableViewController {
         tableView?.refreshControl?.addTarget(self, action: #selector(getbestEpisodes), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         getbestEpisodes()
+#warning("REMOVE PRINTS")
         print("ViewDidLoad")
         print (podcast)
     }
@@ -36,6 +38,7 @@ class EpisodesViewController: UITableViewController {
             
             do {
                 let result = try JSONDecoder().decode(EpisodesResult.self, from: data)
+#warning("REMOVE PRINTS")
                 print("DECODING RESULT \(result)")
                 self.models2 = result.episodes
                 DispatchQueue.main.async {
@@ -44,6 +47,7 @@ class EpisodesViewController: UITableViewController {
                 }
                 
             } catch {
+#warning("REMOVE PRINTS")
                 print("DECODING ERROR \(error)")
                 DispatchQueue.main.async {
                     self.tableView?.refreshControl?.endRefreshing()
@@ -70,8 +74,7 @@ class EpisodesViewController: UITableViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+#warning("REMOVE unneeded code, episodes not used here, all this method can be removed")
         let episodes = models2[indexPath.row]
     }
 }
-
-

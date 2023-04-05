@@ -5,6 +5,8 @@
 //  Created by Владислав Юрченко on 29.03.2023.
 //
 
+#warning("Should have only 1 space bewtween import and definition")
+#warning("MODELS should be in different files")
 import Foundation
 struct bestPodcastResult: Decodable {
     let podcasts: [Podcast]
@@ -27,7 +29,7 @@ struct Podcast: Decodable {
 
 
 
-    
+#warning("REMOVE COMMENTS")
     //    let type: String
     //    let email: String
     //        case id

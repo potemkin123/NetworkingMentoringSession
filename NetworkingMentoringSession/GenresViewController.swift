@@ -7,6 +7,7 @@
 
 import UIKit
 
+#warning("MARK or non inherited classes as `final`")
 class GenresViewController: UITableViewController {
     var models: [Genre] = []
     var selectedGenre: Genre?
@@ -16,10 +17,12 @@ class GenresViewController: UITableViewController {
         tableView?.refreshControl?.addTarget(self, action: #selector(getGenres), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         getGenres()
+#warning("REMOVE PRINTS")
         print("ViewDidLoad")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+#warning("REMOVE PRINTS")
         print(segue.identifier)
         print(segue.destination)
         if segue.identifier == "bestPodcast", let vc = segue.destination as? PodcastsViewController {
@@ -39,6 +42,7 @@ class GenresViewController: UITableViewController {
             
             do {
                 let result = try JSONDecoder().decode(GenresResult.self, from: data)
+#warning("REMOVE PRINTS")
                 print("DECODING RESULT \(result)")
                 
                 self.models = result.genres
@@ -48,6 +52,7 @@ class GenresViewController: UITableViewController {
                 }
                 
             } catch {
+#warning("REMOVE PRINTS")
                 print("DECODING ERROR \(error)")
                 self.tableView?.refreshControl?.endRefreshing()
             }
@@ -77,4 +82,3 @@ class GenresViewController: UITableViewController {
         self.performSegue(withIdentifier: "bestPodcast", sender: self)
     }
 }
-

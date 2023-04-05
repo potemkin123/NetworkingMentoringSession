@@ -5,9 +5,10 @@
 //  Created by Владислав Юрченко on 29.03.2023.
 //
 
+#warning("Should have only 1 space bewtween import and definition")
 import UIKit
 
-
+#warning("MARK or non inherited classes as `final`")
 class PodcastsViewController: UITableViewController {
     var styles: [Podcast] = []
     var genre: Genre?
@@ -18,11 +19,13 @@ class PodcastsViewController: UITableViewController {
         tableView?.refreshControl?.addTarget(self, action: #selector(getbestPodcast), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         getbestPodcast()
+#warning("REMOVE PRINTS")
         print("ViewDidLoad")
         print (genre)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+#warning("REMOVE PRINTS")
         print(segue.identifier)
         print(segue.destination)
         if segue.identifier == "bestEpisodes", let vc = segue.destination as? EpisodesViewController {
@@ -46,6 +49,7 @@ class PodcastsViewController: UITableViewController {
             
             do {
                 let result = try JSONDecoder().decode(bestPodcastResult.self, from: data)
+#warning("REMOVE PRINTS")
                 print("DECODING RESULT \(result)")
                 self.styles = result.podcasts
                 
@@ -55,6 +59,7 @@ class PodcastsViewController: UITableViewController {
                 }
                 
             } catch {
+#warning("REMOVE PRINTS")
                 print("DECODING ERROR \(error)")
                 self.tableView?.refreshControl?.endRefreshing()
             }
