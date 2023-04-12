@@ -6,11 +6,7 @@
 //
 
 import Foundation
+
 struct EpisodesResult: Decodable {
     let episodes: [Episode]
-}
-
-struct Episode: Decodable {
-    let id: String
-    let title: String
 }

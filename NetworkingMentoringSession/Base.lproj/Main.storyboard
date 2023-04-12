@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c57-hY-xwe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,7 +11,7 @@
         <!--Genres View Controller-->
         <scene sceneID="QHX-It-Hfn">
             <objects>
-                <tableViewController id="p8e-rk-LOJ" customClass="GenresViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GenresViewController" id="p8e-rk-LOJ" customClass="GenresViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WSn-nl-HHU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,34 +32,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Fwq-67-07O"/>
-                    <connections>
-                        <segue destination="xjo-g7-OT6" kind="show" identifier="bestPodcast" id="1Fm-Yg-6aB"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mmr-6j-gsR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376" y="-447"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6Ax-AH-Ysg">
-            <objects>
-                <navigationController id="c57-hY-xwe" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R0K-l4-ubb">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="p8e-rk-LOJ" kind="relationship" relationship="rootViewController" id="hWi-V2-zRt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LxO-Ca-byY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="534" y="-23"/>
+            <point key="canvasLocation" x="592" y="-70"/>
         </scene>
         <!--Podcasts View Controller-->
         <scene sceneID="dTc-Ht-Dml">
             <objects>
-                <tableViewController id="xjo-g7-OT6" customClass="PodcastsViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PodcastsViewController" id="xjo-g7-OT6" customClass="PodcastsViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="RIq-Eg-eHz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,18 +61,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ONf-eG-IIe"/>
-                    <connections>
-                        <segue destination="wGV-ON-RYq" kind="show" identifier="bestEpisodes" id="98V-Oe-c8b"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpE-Ht-SEU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1375" y="353"/>
+            <point key="canvasLocation" x="1422" y="-70"/>
         </scene>
         <!--Episodes View Controller-->
         <scene sceneID="t6s-Ca-Uzv">
             <objects>
-                <tableViewController id="wGV-ON-RYq" customClass="EpisodesViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EpisodesViewController" id="wGV-ON-RYq" customClass="EpisodesViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="J1u-5m-DhY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,7 +93,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FR3-kI-dbJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2227" y="163"/>
+            <point key="canvasLocation" x="2242" y="-70"/>
         </scene>
     </scenes>
     <resources>

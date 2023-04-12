@@ -1,14 +1,11 @@
 //
-//  GenresResult.swift
+//  Genre.swift
 //  NetworkingMentoringSession
 //
-//  Created by Владислав Юрченко on 29.03.2023.
+//  Created by Владислав Юрченко on 05.04.2023.
 //
 
 import Foundation
-struct GenresResult: Decodable {
-    let genres: [Genre]
-}
 
 struct Genre: Decodable {
     let id: Int
